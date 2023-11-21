@@ -6,23 +6,27 @@ class Button extends StatelessWidget {
 
   final textColor;
   final String text;
-
+  final VoidCallback buttonTap;
 
   const Button({
     required this.textColor,
     required this.text,
+    required this.buttonTap,
     super.key  
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 80,
-      height: 80,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: HexColor("1F1A16")),
-      child: Center(
-        child: Text( text, style: TextStyle(fontSize: 30, color: textColor)),
-      )
+    return GestureDetector(
+      onTap: buttonTap,
+      child: Container(
+        width: 80,
+        height: 80,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: HexColor("1F1A16")),
+        child: Center(
+          child: Text( text, style: TextStyle(fontSize: 30, color: textColor)),
+        )
+      ),
     );
   }
 }
