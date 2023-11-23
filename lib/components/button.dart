@@ -17,16 +17,40 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: buttonTap,
-      child: Container(
-        width: 80,
-        height: 80,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: HexColor("1F1A16")),
-        child: Center(
-          child: Text( text, style: TextStyle(fontSize: 30, color: textColor)),
-        )
+    if(text ==  "=") {
+      return Container(
+      width: 80,
+      height: 80,
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color:  HexColor("af2f2c")),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(50),
+          onTap: buttonTap,
+          child: Center(
+            child: Text(text, style: TextStyle(fontSize: 60, color: HexColor("FFFFFF"))),
+          ),
+        ),
       ),
     );
+    } else {
+      return 
+      Container(
+      width: 80,
+      height: 80,
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: HexColor("1F1A16")),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(50),
+          onTap: buttonTap,
+          child: Center(
+            child: Text(text, style: TextStyle(fontSize: 30, color: textColor)),
+          ),
+        ),
+      ),
+    );
+    }
+    
   }
 }

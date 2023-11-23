@@ -2,23 +2,24 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class ClearButton extends StatelessWidget {
+class HistoryButton extends StatelessWidget {
 
   final VoidCallback onTaped;
 
-  const ClearButton({required this.onTaped, super.key});
+  const HistoryButton({required this.onTaped, super.key});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTaped,
       child: Padding(
-        padding: const EdgeInsets.only(right: 8.0),
+        padding: const EdgeInsets.only(left: 25.0),
         child: Container(
           alignment: Alignment.centerRight,
-          child: Icon(Icons.backspace_outlined, color: HexColor("DE9D9B"),),
+          child: Icon(Icons.history, color: HexColor("DE9D9B"), size: 27,
         ),
       ),
+    )
     );
   }
 }
